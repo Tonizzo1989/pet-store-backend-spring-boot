@@ -22,8 +22,6 @@ public class PetStoreEntity {
     @Column
     public String age;
 
-    @Column
-    public String zone;
 
 
 }
