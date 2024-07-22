@@ -2,44 +2,37 @@ package it.petstore.controller;
 
 import it.petstore.service.IPetStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/pet")
-public class PetStoreController {
+@RequestMapping("/pet") //Dominio funzionale! (Argomento principale)
+public class PetController {
 
     @Autowired IPetStore petStore;
 
+    //Crea un nuovo pet
     @PostMapping
     public String addNewPet (){
        return petStore.create();
 
     }
-
+    //Prendi tutti i pet
     @GetMapping
     public String findsPetsStatus(){
         return petStore.getList();
     }
 
-    @GetMapping
-    public String findsPetsByTags(){
-        return petStore.getSingle();
-    }
-
-    @GetMapping
+    // Prendi solo un pet specifico
+    @GetMapping("{id}")
     public String findsPetsById(){
         return petStore.getSingle();
     }
 
-    @PostMapping
+    //Aggiorna il singolo pet
+    @PutMapping("{id}")
     public String updatesAPet(){
         return petStore.update();
     }
-
-
 
 }

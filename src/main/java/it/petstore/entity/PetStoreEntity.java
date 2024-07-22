@@ -1,9 +1,6 @@
-package it.petstore.service.entity;
+package it.petstore.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -19,11 +16,15 @@ public class PetStoreEntity {
     @Column
     public String fur;
 
+
     @Column
     public String age;
 
     @Column
     public String zone;
+
+    @ManyToOne
+    public UserEntity owner;
 
 
 }

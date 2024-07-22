@@ -1,7 +1,9 @@
 package it.petstore.service.impl;
 
 import it.petstore.service.IPetStore;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PetStoreImpl implements IPetStore {
 
 
