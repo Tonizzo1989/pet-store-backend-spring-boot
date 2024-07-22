@@ -1,8 +1,8 @@
 package it.petstore.service;
 
-public interface IPetStore {
+public interface IPetStoreService {
 
-    //Implementazione del Crud
+    //Dichiarazione dei metodi.
 
      String create();
 

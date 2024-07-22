@@ -1,15 +1,22 @@
 package it.petstore.controller;
 
+import it.petstore.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/user")
 
+
 public class UserController {
+
+    @Autowired
+    IUserService userService;
 
     @PostMapping
     public String create(){
-        return "CreateANewUser";
+        return userService.create();
     }
 
     @GetMapping
@@ -23,18 +30,23 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public String getUserByUserName(){
-        return "getUserByUserName";
+    public String getUserByUserId(){
+        return userService.readSingle();
     }
 
     @DeleteMapping("{id}")
-    public String delete(){
-        return "deleteUser";
+    public String deleteByUserById(){
+        return userService.delete();
     }
 
     @PutMapping("{id}")
     public String updateUser(){
-        return "UserUpdated";
+        return userService.update();
+    }
+
+    @GetMapping()
+    public String readList(){
+        return userService.readList();
     }
 
 }

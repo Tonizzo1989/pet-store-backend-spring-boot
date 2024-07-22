@@ -1,6 +1,6 @@
 package it.petstore.controller;
 
-import it.petstore.service.IPetStore;
+import it.petstore.service.IPetStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/pet") //Dominio funzionale! (Argomento principale)
 public class PetController {
 
-    @Autowired IPetStore petStore;
+    @Autowired //Implementiamo una dipendenza per gestire la logica di business
+    IPetStoreService petStore;
 
     //Crea un nuovo pet
     @PostMapping

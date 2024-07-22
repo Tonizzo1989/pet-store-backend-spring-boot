@@ -1,10 +1,10 @@
 package it.petstore.service.impl;
 
-import it.petstore.service.IPetStore;
+import it.petstore.service.IPetStoreService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PetStoreImpl implements IPetStore {
+public class PetStoreServiceImpl implements IPetStoreService {
 
 
     @Override
